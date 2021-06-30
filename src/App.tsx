@@ -1,24 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { makeStyles, Paper, Theme, Typography } from '@material-ui/core';
+import Configuration from './components/Configuration';
 
-function App() {
+const useStyles = makeStyles((theme: Theme) => {
+  return {
+    root: {
+      display: "flex",
+      justifyContent: "center"
+    },
+    container: {
+      paddingTop: theme.spacing(2),
+      width: "75%"
+    },
+    paper: {
+      padding: theme.spacing(1),
+      backgroundColor: theme.palette.grey[200]
+    },
+    title: {
+      width: "100%"
+    }
+  }
+})
+
+const App: React.FC = () => {
+  const [numberOfcolumns, setNumberOfColumns] = React.useState(5);
+  const [numberOfRows, setNumberOfRows] = React.useState(10);
+
+  const handleNumberOfColumnsChanged = (x: number) => {
+    setNumberOfColumns(x)
+  }
+
+  const handleNumberOfRowsChanged = (x: number) => {
+    setNumberOfRows(x)
+  }
+
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <div className={classes.container}>
+        <Paper className={classes.paper}>
+          <Typography >Times Tables Test Generator</Typography>
+          <Configuration
+            columns={numberOfcolumns}
+            rows={numberOfRows}
+            onNumberOfColumnsChanged={handleNumberOfColumnsChanged}
+            onNumberOfRowsChanged={handleNumberOfRowsChanged} />
+        </Paper>
+      </div>
     </div>
   );
 }
