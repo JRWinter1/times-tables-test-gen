@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/times-tables-test-gen/static/css/main.4a4137e4.chunk.css",
+    "main.js": "/times-tables-test-gen/static/js/main.da9a697c.chunk.js",
+    "main.js.map": "/times-tables-test-gen/static/js/main.da9a697c.chunk.js.map",
+    "runtime-main.js": "/times-tables-test-gen/static/js/runtime-main.23b75e99.js",
+    "runtime-main.js.map": "/times-tables-test-gen/static/js/runtime-main.23b75e99.js.map",
+    "static/js/2.59e808a8.chunk.js": "/times-tables-test-gen/static/js/2.59e808a8.chunk.js",
+    "static/js/2.59e808a8.chunk.js.map": "/times-tables-test-gen/static/js/2.59e808a8.chunk.js.map",
+    "index.html": "/times-tables-test-gen/index.html",
+    "static/css/main.4a4137e4.chunk.css.map": "/times-tables-test-gen/static/css/main.4a4137e4.chunk.css.map",
+    "static/js/2.59e808a8.chunk.js.LICENSE.txt": "/times-tables-test-gen/static/js/2.59e808a8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.23b75e99.js",
+    "static/js/2.59e808a8.chunk.js",
+    "static/css/main.4a4137e4.chunk.css",
+    "static/js/main.da9a697c.chunk.js"
+  ]
+}
