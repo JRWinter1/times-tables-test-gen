@@ -26,6 +26,7 @@ interface Props {
   readonly numberOfRows: number;
   readonly variables: ReadonlyArray<QuestionVaraibles>;
   readonly showAnswers: boolean;
+  readonly fontSize: number;
 }
 
 const TestGrid: React.FC<Props> = (props: Props) => {
@@ -42,6 +43,7 @@ const TestGrid: React.FC<Props> = (props: Props) => {
                 isFlipped={Math.random() > 0.5}
                 key={i}
                 variables={v}
+                fontSize={props.fontSize}
               />
             ) : (
               <Division
@@ -49,6 +51,7 @@ const TestGrid: React.FC<Props> = (props: Props) => {
                 isFlipped={Math.random() > 0.5}
                 key={i}
                 variables={v}
+                fontSize={props.fontSize}
               />
             )}
           </div>

@@ -41,6 +41,7 @@ const App: React.FC = () => {
   const [questionVariables, setQuestionVariables] = React.useState<
     ReadonlyArray<QuestionVaraibles>
   >([]);
+  const [fontSize, setFontSize] = React.useState(16);
 
   const handleNumberOfColumnsChanged = (x: number) => {
     setNumberOfColumns(x);
@@ -77,6 +78,14 @@ const App: React.FC = () => {
     setQuestionVariables(varaibles);
   };
 
+  const handleIncreaseFontSize = () => {
+    setFontSize(fontSize + 1);
+  };
+
+  const handleDecreaseFontSize = () => {
+    setFontSize(fontSize - 1);
+  };
+
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -91,6 +100,8 @@ const App: React.FC = () => {
             onSelectedNumbersChanged={handleSelectedNumbersChanged}
             onNumberOfColumnsChanged={handleNumberOfColumnsChanged}
             onNumberOfRowsChanged={handleNumberOfRowsChanged}
+            onIncreaseFontSize={handleIncreaseFontSize}
+            onDecreaseFontSize={handleDecreaseFontSize}
           />
         </Paper>
         <TestGrid
@@ -98,6 +109,7 @@ const App: React.FC = () => {
           variables={questionVariables}
           numberOfColumns={numberOfcolumns}
           numberOfRows={numberOfRows}
+          fontSize={fontSize}
         />
       </div>
     </div>

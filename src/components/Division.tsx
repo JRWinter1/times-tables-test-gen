@@ -15,6 +15,9 @@ const useStyles = makeStyles((theme: Theme) => {
     indent: {
       marginLeft: "0.25em",
     },
+    typography: {
+      fontSize: (props: Props) => props.fontSize,
+    },
   };
 });
 
@@ -22,6 +25,7 @@ interface Props {
   readonly variables: QuestionVaraibles;
   readonly isFlipped?: boolean;
   readonly showAnswers: boolean;
+  readonly fontSize: number;
 }
 
 const TimesTable: React.FC<Props> = (props: Props) => {
@@ -31,9 +35,13 @@ const TimesTable: React.FC<Props> = (props: Props) => {
 
   const renderAnswer = () => {
     return valueToHide === 0 ? (
-      <AnswerBox className={clsx(!props.isFlipped && classes.indent)} />
+      <AnswerBox
+        className={clsx(classes.typography, !props.isFlipped && classes.indent)}
+      />
     ) : (
-      <Typography className={clsx(!props.isFlipped && classes.indent)}>
+      <Typography
+        className={clsx(classes.typography, !props.isFlipped && classes.indent)}
+      >
         {props.variables.y}
       </Typography>
     );
@@ -43,17 +51,30 @@ const TimesTable: React.FC<Props> = (props: Props) => {
     return (
       <>
         {valueToHide === 1 ? (
-          <AnswerBox className={clsx(props.isFlipped && classes.indent)} />
+          <AnswerBox
+            className={clsx(
+              classes.typography,
+              props.isFlipped && classes.indent
+            )}
+          />
         ) : (
-          <Typography className={clsx(props.isFlipped && classes.indent)}>
+          <Typography
+            className={clsx(
+              classes.typography,
+              props.isFlipped && classes.indent
+            )}
+          >
             {props.variables.y * props.variables.x}
           </Typography>
         )}
-        <Typography className={classes.indent}> ÷ </Typography>
+        <Typography className={clsx(classes.typography, classes.indent)}>
+          {" "}
+          ÷{" "}
+        </Typography>
         {valueToHide === 2 ? (
-          <AnswerBox className={classes.indent} />
+          <AnswerBox className={clsx(classes.typography, classes.indent)} />
         ) : (
-          <Typography className={classes.indent}>
+          <Typography className={clsx(classes.typography, classes.indent)}>
             {props.variables.x}
           </Typography>
         )}
@@ -64,7 +85,9 @@ const TimesTable: React.FC<Props> = (props: Props) => {
   return (
     <div className={classes.root}>
       {props.isFlipped ? renderAnswer() : renderVariables()}
-      <Typography className={classes.indent}>=</Typography>
+      <Typography className={clsx(classes.typography, classes.indent)}>
+        =
+      </Typography>
       {props.isFlipped ? renderVariables() : renderAnswer()}
     </div>
   );

@@ -10,8 +10,12 @@ import {
   Checkbox,
   ListItemText,
   Button,
+  IconButton,
+  ButtonGroup,
 } from "@material-ui/core";
 import { numberOptions } from "../model";
+import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
 
 const useStyles = makeStyles((theme: Theme) => {
   return {
@@ -65,6 +69,8 @@ interface Props {
   readonly onNumberOfColumnsChanged: (x: number) => void;
   readonly onNumberOfRowsChanged: (x: number) => void;
   readonly onGenerate: () => void;
+  readonly onDecreaseFontSize: () => void;
+  readonly onIncreaseFontSize: () => void;
 }
 
 const Configuration: React.FC<Props> = (props: Props) => {
@@ -156,6 +162,16 @@ const Configuration: React.FC<Props> = (props: Props) => {
           })}
         </Select>
       </FormControl>
+      <div className={classes.buttonContainer}>
+        <ButtonGroup orientation="vertical" variant="contained" color="primary">
+          <IconButton onClick={props.onIncreaseFontSize}>
+            <AddIcon />
+          </IconButton>
+          <IconButton onClick={props.onDecreaseFontSize}>
+            <RemoveIcon />
+          </IconButton>
+        </ButtonGroup>
+      </div>
       <div className={classes.buttonContainer}>
         <Button variant="contained" onClick={handlePrint}>
           Print
